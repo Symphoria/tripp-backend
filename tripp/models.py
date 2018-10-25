@@ -26,6 +26,7 @@ class Reservation(db.Model):
     customer_email = db.Column(db.String(200))
     customer_phone = db.Column(db.String(20))
     card_details = db.Column(db.String(200))
+    no_of_rooms = db.Column(db.Integer)
 
     room = db.relationship('Room', backref='reservation')
 

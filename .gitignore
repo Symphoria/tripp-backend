@@ -1,3 +1,5 @@
 .vscode
 pyenv
+.venv
+.idea
 *.pyc
