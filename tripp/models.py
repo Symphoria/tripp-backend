@@ -8,6 +8,7 @@ class Room(db.Model):
     location = db.Column(db.String(200))
     type = db.Column(db.String(200))
     number_of_rooms = db.Column(db.Integer)
+    address = db.Column(db.String(200))
     capacity = db.Column(db.Integer)
     price = db.Column(db.Integer)
 
