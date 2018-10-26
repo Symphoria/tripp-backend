@@ -82,13 +82,14 @@ def book():
     customer_phone = data.get("phone")
     customer_card_details = data.get("cardDetails")
     number_of_rooms = int(data.get("rooms"))
+    price = int(data.get("price"))
 
     date_format = "%d-%m-%Y"
     check_in_time = datetime.strptime(data.get('checkInTime'), date_format)
     check_out_time = datetime.strptime(data.get('checkOutTime'), date_format)
 
     new_reservation = Reservation(room_id=room_id, customer_name=customer_name, customer_email=customer_email,
-                                  customer_phone=customer_phone, card_details=customer_card_details,
+                                  customer_phone=customer_phone, card_details=customer_card_details, price=price,
                                   no_of_rooms=number_of_rooms, check_in=check_in_time, check_out=check_out_time)
 
     db.session.add(new_reservation)
