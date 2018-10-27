@@ -16,9 +16,9 @@ def get_rooms():
     location = request.args.get('location')
     room_type = request.args.get('type')
     no_of_adults = int(request.args.get('adults'))
-    no_of_children = int(request.args.get('children'))
+    no_of_children = int(request.args.get('children'), 0)
 
-    date_format = "%d-%m-%Y"
+    date_format = "%Y-%m-%d"
     check_in_time = datetime.strptime(request.args.get('checkInTime'), date_format)
     check_out_time = datetime.strptime(request.args.get('checkOutTime'), date_format)
 
@@ -70,7 +70,7 @@ def get_rooms():
     if len(payload) > 0:
         return make_response(jsonify(payload)), 200
     else:
-        return make_response(jsonify({"message": "Cannot accommodate in given type of room"})), 400
+        return make_response(jsonify([])), 400
 
 
 @app.route("/book", methods=['POST'])
@@ -84,7 +84,7 @@ def book():
     number_of_rooms = int(data.get("rooms"))
     price = int(data.get("price"))
 
-    date_format = "%d-%m-%Y"
+    date_format = "%Y-%m-%d"
     check_in_time = datetime.strptime(data.get('checkInTime'), date_format)
     check_out_time = datetime.strptime(data.get('checkOutTime'), date_format)
 
