@@ -25,4 +25,7 @@ CSRF_SESSION_KEY = "this_is_a_secret"
 # Secret key for signing cookies
 SECRET_KEY = "the_Story_starts_here"
 
+BASIC_AUTH_USERNAME = 'admin'
+BASIC_AUTH_PASSWORD = 'pass'
+
 DEBUG = True
